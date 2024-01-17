@@ -1,0 +1,92 @@
+API DOCUMENTATION
+
+takeinput FUNCTION:
+This function takes in no arguments and simply asks the user for an input and assigns it to filename variable which ultimately returns. The input is taken as the name of the .csv file that will be opened.
+ARGUMENTS: None
+RETURNED VALUE: filename
+
+
+
+takeoutput FUNCTION:
+This function takes in no arguments and simply asks the user for an input and assigns it to filename variable which ultimately returns. The input is taken as the name of the .txt file that will be used to save the ouput later on.
+ARGUMENTS: None
+RETURNED VALUE: filename
+
+
+
+max_function FUNCTION:
+This function takes in the content, leagueentry and metricentry and calculates the maximum by iterating through the rows while comparing the currentmax with the current row's corresponding metric value, if the current case is the new max it also stores the team name. It also check if the league is the same for comparison if it is the case that the user has not chosen the 'All' option.
+ARGUMENTS: content, leagueentry, metricentry
+RETURNED VALUE: teamname, maxval
+
+
+
+min_function FUNCTION:
+This function takes in the content, leagueentry and metricentry and calculates the minimum by iterating through the rows while comparing the currentmin with the current row's corresponding metric value, if the current case is the new min it also stores the team name. It also checks if the league is the same for comparison if it is the case that the user has not chosen the 'All' option.
+ARGUMENTS: content, leagueentry, metricentry
+RETURNED VALUE: teamname, minval
+
+
+
+avg_function FUNCTION:
+This function takes in the content, leagueentry and metricentry and calculates the average by iterating through the rows while in the meantime accumulating the counter and the sums and performs the division operation to get the average at the end with these two values. While iterating through the rows, only the cases where the league input is the same are considered unless 'All' option was specified.
+ARGUMENTS: content, leagueentry, metricentry
+
+RETURNED VALUE: leagueentry(or All top 5 leagues label), avgval
+
+
+
+popstddev_function FUNCTION:
+This function takes in the content, leagueentry and metricentry and after finding the corresponding mean by calling the avg_funtion with the same inputs calculates the standard deviation by iterating through the rows while in the meantime accumulating the counter and applying the squared part of the formula. Then it square roots the iteratively summed up stddevum divided by the counter (applying the basic std dev formula) While iterating through the rows, only the cases where the league input is the same are considered unless 'All' option was specified.
+ARGUMENTS: content, leagueentry, metricentry
+RETURNED VALUE: leagueentry(or All top 5 leagues label), stddev
+
+
+
+freq_of_occurence_function FUNCTION:
+This function takes in the content, leagueentry and metricentry, takes the number that we want the frequency of as an input and calculates the number of occurences of it in the corresponding data pool by iteratinf through the rows and searching for a number match, and if there is a match found indeed, the team that fit the match is appended to a list called teamlist. While iterating through the rows, only the cases where the league input is the same are considered unless 'All' option was specified.
+ARGUMENTS: content, leagueentry, metricentry
+RETURNED VALUE: freqno, counter, teamlist
+
+
+
+compare_leagues FUNCTION:
+This function takes in the content and metricentry as an input and calculates the means of the corresponding metric for each league by calling in the avg_function and makes a dictionary out of it by adding in the league names as the keys. Then it sorts it in descending order.
+ARGUMENTS: content, metricentry
+RETURNED VALUE: sorted_dict
+
+
+
+get_team_rank FUNCTION:
+This function takes in the content and metricentry and calculates the rank of a team based on a specific performance metric either in its own league or all top 5 leagues depending on the leagueentry. It starts the rank for the team at 1 and while iterating through increments its rank if a higher value is found for another team.
+ARGUMENTS: content, metricentry
+RETURNED VALUE: team, rankincountry, ranktotal
+
+
+
+
+correlation_on_metric FUNCTION:
+This function takes in the content and the metricentry as an input and asks for another input for the second metric and then calculates the correlation between the two metrics using all of the rows' corresponding values by applying the correlation formula after computing the covariance.
+ARGUMENTS: content, metricentry
+RETURNED VALUE: metricentry, secondmetric, correlation
+
+
+
+printandsave FUNCTION:
+This function takes in the distinguisher, output, leagueentry, metricentry, outputfile as inputs. Distinguisher is from 1 to 8, where it is used to determine which function the user wants us to call and provide the outputs for. Then for each case, the program prints the results formatted to the appropriate answer after calling the corresponding function. It also saves the output to our previously provided .txt file.
+ARGUMENTS: distinguisher, output, leagueentry, metricentry, outputfile
+RETURNED VALUE: None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
